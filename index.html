@@ -66,9 +66,10 @@
         <input id="price" type="number" placeholder="Price">
       </div>
       <div class="field">
-        <input id="image" type="file" accept="image/*" onchange="previewImage(event)">
-        <img id="imgPreview" src="" style="width:100%;height:auto;border-radius:12px;margin-top:6px;display:none;">
+        <input id="images" type="file" accept="image/*" multiple onchange="previewImages(event)">
+        <div id="imgPreviewContainer" style="display:flex;gap:6px;margin-top:6px;"></div>
       </div>
+
       <div class="field"><input id="owner" type="text" placeholder="Owner name"></div>
       <div class="field"><input id="contact" type="text" placeholder="Contact number"></div>
       <div class="field"><textarea id="desc" placeholder="Short description"></textarea></div>
