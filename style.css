@@ -145,123 +145,180 @@ textarea{ min-height:82px; resize:vertical; }
   box-shadow: 0 4px 10px rgba(0,0,0,0.15);
 }
 /* Extra responsiveness */
-@media (max-width: 768px) {
+/* =======================
+   Mobile First Responsive
+   ======================= */
+
+/* Default (Mobile Styles) */
+body {
+  font-size: 14px;
+  padding: 8px;
+}
+
+h1 {
+  font-size: 22px;
+  text-align: center;
+  margin-bottom: 12px;
+}
+
+.topbar {
+  flex-direction: column;
+  align-items: center;
+  padding: 10px;
+  gap: 10px;
+}
+
+.top-actions {
+  flex-direction: column;
+  width: 100%;
+  gap: 8px;
+}
+
+.top-actions button,
+.top-actions .btn-login {
+  width: 100%;
+  padding: 10px;
+  font-size: 14px;
+}
+
+.filters {
+  flex-direction: column;
+  gap: 8px;
+}
+
+.filters input,
+.filters button {
+  width: 100%;
+  font-size: 14px;
+}
+
+.listing {
+  flex-direction: column;
+  align-items: center;
+  gap: 12px;
+}
+
+.thumb {
+  width: 100%;
+  height: 180px;
+}
+
+.land-details {
+  text-align: left;
+}
+
+.land-actions {
+  flex-direction: column;
+  width: 100%;
+  gap: 6px;
+}
+
+.land-actions button {
+  width: 100%;
+  padding: 10px;
+  font-size: 14px;
+}
+
+.card {
+  padding: 14px;
+  width: 100%;
+}
+
+/* Tablet View (481px–768px) */
+@media (min-width: 481px) and (max-width: 768px) {
   h1 {
     font-size: 26px;
-    margin: 10px;
   }
 
   .topbar {
+    flex-direction: row;
     flex-wrap: wrap;
-    padding: 10px 14px;
-    gap: 8px;
-  }
-
-  .logo {
-    width: 45px;
-    height: 45px;
-    font-size: 18px;
-  }
-
-  .brand .title {
-    font-size: 16px;
-  }
-
-  .brand .tag {
-    font-size: 11px;
+    justify-content: space-between;
   }
 
   .top-actions {
+    flex-direction: row;
     flex-wrap: wrap;
     justify-content: center;
-    width: 100%;
+    gap: 10px;
   }
 
   .top-actions button,
   .top-actions .btn-login {
     flex: 1 1 45%;
-    text-align: center;
-    font-size: 14px;
-    padding: 8px;
+    font-size: 15px;
   }
 
   .filters {
-    flex-direction: column;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: space-between;
   }
 
-  .filters input,
+  .filters input {
+    flex: 1 1 65%;
+  }
+
   .filters button {
-    width: 100%;
+    flex: 1 1 30%;
   }
 
   .listing {
     flex-direction: column;
-    align-items: flex-start;
+    align-items: stretch;
   }
 
   .thumb {
-    width: 100%;
-    height: 180px;
-  }
-
-  .land-actions {
-    margin-top: 10px;
-    display: flex;
-    flex-wrap: wrap;
-    gap: 8px;
-  }
-
-  .land-actions button {
-    flex: 1 1 30%;
+    height: 220px;
   }
 }
 
-@media (max-width: 480px) {
-  h1 {
-    font-size: 22px;
-  }
-
-  .topbar {
-    margin: 8px;
-    padding: 8px;
-  }
-
-  .logo {
-    width: 38px;
-    height: 38px;
+/* Desktop (769px+) */
+@media (min-width: 769px) {
+  body {
     font-size: 16px;
   }
 
-  .brand .title {
-    font-size: 14px;
+  h1 {
+    font-size: 32px;
   }
 
-  .brand .tag {
-    font-size: 10px;
+  .topbar {
+    flex-direction: row;
+    justify-content: space-between;
   }
 
-  .card {
-    padding: 14px;
+  .top-actions {
+    flex-direction: row;
+    gap: 12px;
   }
 
-  input[type="text"], 
-  input[type="number"], 
-  textarea, 
-  input[list] {
-    font-size: 13px;
-    padding: 10px;
+  .filters {
+    flex-direction: row;
+    gap: 10px;
   }
 
-  .btn-primary {
-    font-size: 14px;
-    padding: 10px;
+  .filters input {
+    width: auto;
   }
 
-  .price {
-    font-size: 14px;
-    padding: 5px 10px;
+  .listing {
+    flex-direction: row;
+    justify-content: space-between;
+  }
+
+  .thumb {
+    width: 220px;
+    height: 150px;
+  }
+
+  .land-actions {
+    flex-direction: row;
+    justify-content: flex-start;
+  }
+
+  .land-actions button {
+    flex: none;
+    width: auto;
   }
 }
-
-
-
