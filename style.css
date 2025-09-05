@@ -117,31 +117,3 @@ textarea{ min-height:82px; resize:vertical; }
 }
 .land-actions button:hover{ transform: scale(1.1); box-shadow:0 6px 18px rgba(250,204,21,0.55); }
 
-/* Available Plots section full width */
-#available-plots {
-  width: 100% !important;
-  max-width: 100% !important;
-  margin: 0;
-  padding: 0 10px;
-  box-sizing: border-box;
-}
-
-/* Every card inside available plots should have border */
-#available-plots .card {
-  border: 1px solid #ccc;
-  border-radius: 8px;
-  padding: 15px;
-  margin: 10px 0;
-  box-sizing: border-box;
-  background: #fff;
-}
-
-/* Add New Plot section also with border */
-#add-plot .card {
-  border: 1px solid #ccc;
-  border-radius: 8px;
-  padding: 15px;
-  margin: 10px 0;
-  background: #fff;
-  box-sizing: border-box;
-}
