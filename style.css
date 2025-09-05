@@ -140,7 +140,8 @@ textarea{ min-height:82px;resize:vertical }
 .muted{ color:rgba(255,255,255,0.8);font-size:13px }
 .pill{
   background:rgba(250,204,21,0.15);padding:8px 14px;border-radius:999px;
-  font-weight:600;font-size:13px;color:#facc15
+  font-weight:600;font-size:13px;color:#facc15;
+  border: none;
 }
 
 /* Land actions */
