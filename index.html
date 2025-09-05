@@ -28,13 +28,12 @@
       </div>
       <a href="login.html" class="btn-login" id="loginBtn">Login</a>
     </div>
-
-
   </div>
 
   <h1>Plotify — Royal Land Marketplace</h1>
 
   <main class="container" role="main">
+    <!-- Available Plots -->
     <section class="card" aria-labelledby="available">
       <h2 id="available">Available Plots</h2>
       <div class="filters" role="search">
@@ -47,6 +46,7 @@
       <div id="listings" aria-live="polite"></div>
     </section>
 
+    <!-- Add New Plot -->
     <aside class="card" aria-labelledby="add">
       <h2 id="add">Add New Plot</h2>
       <div class="field">
@@ -77,6 +77,14 @@
       <div class="muted">Data stored in local storage only.</div>
     </aside>
   </main>
+
+  <!-- Image Gallery Modal -->
+  <div id="galleryModal" class="gallery-modal" style="display:none;">
+    <span class="close-btn" onclick="closeGallery()">&times;</span>
+    <img id="galleryImage" class="gallery-image" src="">
+    <button class="prev-btn" onclick="prevImage()">❮</button>
+    <button class="next-btn" onclick="nextImage()">❯</button>
+  </div>
 
   <script src="script.js"></script>
 </body>
