@@ -1,20 +1,20 @@
 
-
 let listings = JSON.parse(localStorage.getItem('listings')) || [];
 let editIndex = null;
-let uploadedImages = []; // uploaded images store karenge
+let uploadedImages = [];
+let currentGallery = { images: [], index: 0 }; 
 
 // --- Preview before adding ---
 function previewImages(event){
   let files = event.target.files;
   let previewContainer = document.getElementById('imgPreviewContainer');
   previewContainer.innerHTML = '';
-  uploadedImages = []; // reset
+  uploadedImages = []; 
 
   [...files].forEach(file=>{
     let reader = new FileReader();
     reader.onload = e=>{
-      uploadedImages.push(e.target.result); // base64 push
+      uploadedImages.push(e.target.result); 
       let img = document.createElement('img');
       img.src = e.target.result;
       img.style.width = '60px';
@@ -39,7 +39,10 @@ function renderListings(data = listings){
   data.forEach((l, idx)=>{
     container.innerHTML += `
       <div class="listing ${l.favorite ? 'favorite' : ''}">
-        <img class="thumb" src="${l.image || 'https://via.placeholder.com/150x100?text=Plotify'}" alt="${l.title}">
+        <img class="thumb" 
+             src="${(l.images && l.images[0]) || 'https://via.placeholder.com/150x100?text=Plotify'}" 
+             alt="${l.title}" 
+             onclick="openGallery(${idx})">
         <div class="info">
           <div class="title">${l.title}</div>
           <div class="meta">${l.city} • ${l.area || '-'} sqft</div>
@@ -73,20 +76,18 @@ function addOrUpdateListing(){
     return; 
   }
 
-  let image = uploadedImages.length ? uploadedImages[0] : '';
-
   if(editIndex !== null){
     listings[editIndex] = {
       ...listings[editIndex],
       title, city, area, price, owner, contact, desc,
-      image,
+      images: uploadedImages.length ? uploadedImages : listings[editIndex].images,
       ownerId: loggedInUser.email
     };
     editIndex = null;
   } else {
     listings.push({
       title, city, area, price, owner, contact, desc,
-      image,
+      images: uploadedImages,   // 👈 array of images
       ownerId: loggedInUser.email,
       favorite: false
     });
@@ -177,6 +178,32 @@ function clearAll(){
     localStorage.setItem('listings', JSON.stringify([]));
     renderListings();
   }
+}
+
+// --- Gallery Modal ---
+function openGallery(idx){
+  currentGallery.images = listings[idx].images && listings[idx].images.length 
+                          ? listings[idx].images 
+                          : ['https://via.placeholder.com/800x500?text=Plotify'];
+  currentGallery.index = 0;
+  document.getElementById('galleryImage').src = currentGallery.images[0];
+  document.getElementById('galleryModal').style.display = 'block';
+}
+
+function closeGallery(){
+  document.getElementById('galleryModal').style.display = 'none';
+}
+
+function prevImage(){
+  if(currentGallery.images.length === 0) return;
+  currentGallery.index = (currentGallery.index - 1 + currentGallery.images.length) % currentGallery.images.length;
+  document.getElementById('galleryImage').src = currentGallery.images[currentGallery.index];
+}
+
+function nextImage(){
+  if(currentGallery.images.length === 0) return;
+  currentGallery.index = (currentGallery.index + 1) % currentGallery.images.length;
+  document.getElementById('galleryImage').src = currentGallery.images[currentGallery.index];
 }
 
 // --- Login/Logout Check ---
