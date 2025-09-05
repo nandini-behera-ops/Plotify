@@ -117,208 +117,63 @@ textarea{ min-height:82px; resize:vertical; }
 }
 .land-actions button:hover{ transform: scale(1.1); box-shadow:0 6px 18px rgba(250,204,21,0.55); }
 
-@media (max-width: 920px){
-  .container{ grid-template-columns: 1fr; padding:12px }
-  .thumb{ width:100%; height:180px; }
-  .topbar{ margin:12px }
-}
-/* existing css yahan tak rahega */
-
-/* 🔹 Login Button (theme-friendly) */
-/* Login Button (same theme as login form) */
-.top-actions .btn-login {
-  padding: 8px 16px;
-  border: none;
-  border-radius: 8px;
-  background: linear-gradient(135deg, #4a90e2, #357abd);
-  color: #fff;
-  font-weight: 600;
-  text-decoration: none;
-  cursor: pointer;
-  transition: 0.3s ease;
-  box-shadow: 0 3px 6px rgba(0,0,0,0.1);
+/* --- Global Responsive Fix --- */
+body, html {
+  width: 100%;
+  margin: 0;
+  padding: 0;
+  overflow-x: hidden; /* prevent horizontal scroll */
 }
 
-.top-actions .btn-login:hover {
-  background: linear-gradient(135deg, #5aa0f2, #468cd6);
-  transform: translateY(-2px);
-  box-shadow: 0 4px 10px rgba(0,0,0,0.15);
-}
-/* Extra responsiveness */
-/* =======================
-   Mobile First Responsive
-   ======================= */
-
-/* Default (Mobile Styles) */
-body {
-  font-size: 14px;
-  padding: 8px;
+section, header, .topbar, .filters, .listing, .card {
+  max-width: 100% !important;
+  width: 100% !important;
+  box-sizing: border-box;
 }
 
-h1 {
-  font-size: 22px;
-  text-align: center;
-  margin-bottom: 12px;
-}
-
+/* Topbar responsive align */
 .topbar {
-  flex-direction: column;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
   align-items: center;
-  padding: 10px;
-  gap: 10px;
-}
-
-.top-actions {
-  flex-direction: column;
   width: 100%;
-  gap: 8px;
 }
 
-.top-actions button,
-.top-actions .btn-login {
+/* H1 full width center */
+h1 {
+  text-align: center;
   width: 100%;
-  padding: 10px;
-  font-size: 14px;
+  margin: 10px 0;
+  font-size: clamp(20px, 5vw, 32px);
 }
 
+/* Filters full width on mobile */
 .filters {
+  width: 100%;
   flex-direction: column;
-  gap: 8px;
+  gap: 10px;
 }
 
 .filters input,
 .filters button {
-  width: 100%;
-  font-size: 14px;
+  width: 100% !important;
 }
 
+/* Listing cards full width on mobile */
 .listing {
+  width: 100%;
   flex-direction: column;
-  align-items: center;
-  gap: 12px;
+  align-items: stretch;
 }
 
-.thumb {
-  width: 100%;
-  height: 180px;
+.listing .thumb {
+  width: 100% !important;
+  height: auto;
 }
 
-.land-details {
-  text-align: left;
-}
-
-.land-actions {
-  flex-direction: column;
-  width: 100%;
-  gap: 6px;
-}
-
-.land-actions button {
-  width: 100%;
-  padding: 10px;
-  font-size: 14px;
-}
-
+/* Card responsive */
 .card {
-  padding: 14px;
-  width: 100%;
-}
-
-/* Tablet View (481px–768px) */
-@media (min-width: 481px) and (max-width: 768px) {
-  h1 {
-    font-size: 26px;
-  }
-
-  .topbar {
-    flex-direction: row;
-    flex-wrap: wrap;
-    justify-content: space-between;
-  }
-
-  .top-actions {
-    flex-direction: row;
-    flex-wrap: wrap;
-    justify-content: center;
-    gap: 10px;
-  }
-
-  .top-actions button,
-  .top-actions .btn-login {
-    flex: 1 1 45%;
-    font-size: 15px;
-  }
-
-  .filters {
-    flex-direction: row;
-    flex-wrap: wrap;
-    justify-content: space-between;
-  }
-
-  .filters input {
-    flex: 1 1 65%;
-  }
-
-  .filters button {
-    flex: 1 1 30%;
-  }
-
-  .listing {
-    flex-direction: column;
-    align-items: stretch;
-  }
-
-  .thumb {
-    height: 220px;
-  }
-}
-
-/* Desktop (769px+) */
-@media (min-width: 769px) {
-  body {
-    font-size: 16px;
-  }
-
-  h1 {
-    font-size: 32px;
-  }
-
-  .topbar {
-    flex-direction: row;
-    justify-content: space-between;
-  }
-
-  .top-actions {
-    flex-direction: row;
-    gap: 12px;
-  }
-
-  .filters {
-    flex-direction: row;
-    gap: 10px;
-  }
-
-  .filters input {
-    width: auto;
-  }
-
-  .listing {
-    flex-direction: row;
-    justify-content: space-between;
-  }
-
-  .thumb {
-    width: 220px;
-    height: 150px;
-  }
-
-  .land-actions {
-    flex-direction: row;
-    justify-content: flex-start;
-  }
-
-  .land-actions button {
-    flex: none;
-    width: auto;
-  }
+  width: 100% !important;
+  margin: 10px 0;
 }
