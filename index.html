@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Plotify</title>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;500;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <div class="topbar" role="banner">
+    <div class="logo">P</div>
+    <div class="brand">
+      <div class="title">Plotify</div>
+      <div class="tag">Buy · Sell ·</div>
+    </div>
+    <div style="flex:1"></div>
+    <div class="top-actions">
+  <button onclick="showFavorites()">Show Favorites</button>
+  <button onclick="clearAll()">Clear All</button>
+  <span id="welcomeUser" class="pill"></span>
+  <button id="logoutBtn" onclick="logout()" style="display:none;">Logout</button>
+  <a href="login.html" class="btn-login" id="loginBtn">Login</a>
+</div>
+
+  </div>
+
+  <h1>Plotify — Royal Land Marketplace</h1>
+
+  <main class="container" role="main">
+    <section class="card" aria-labelledby="available">
+      <h2 id="available">Available Plots</h2>
+      <div class="filters" role="search">
+        <input id="searchCity" placeholder="Search by location">
+        <input id="minPrice" type="number" placeholder="Min Price">
+        <input id="maxPrice" type="number" placeholder="Max Price">
+        <button onclick="filterListings()">🔎 Search</button>
+        <button onclick="resetFilters()">♻️ Reset</button>
+      </div>
+      <div id="listings" aria-live="polite"></div>
+    </section>
+
+    <aside class="card" aria-labelledby="add">
+      <h2 id="add">Add New Plot</h2>
+      <div class="field">
+        <input list="titleSuggestions" id="title" placeholder="Listing title">
+        <datalist id="titleSuggestions">
+          <option value="Residential Plot">
+          <option value="Farming Plot">
+          <option value="Commercial Plot">
+          <option value="Industrial Plot">
+          <option value="Villa Plot">
+          <option value="Beachside Plot">
+        </datalist>
+      </div>
+      <div class="field"><input id="city" type="text" placeholder="City"></div>
+      <div class="field" style="display:flex;gap:8px">
+        <input id="area" type="number" placeholder="Area (sq ft)">
+        <input id="price" type="number" placeholder="Price">
+      </div>
+      <div class="field">
+        <input id="image" type="file" accept="image/*" onchange="previewImage(event)">
+        <img id="imgPreview" src="" style="width:100%;height:auto;border-radius:12px;margin-top:6px;display:none;">
+      </div>
+      <div class="field"><input id="owner" type="text" placeholder="Owner name"></div>
+      <div class="field"><input id="contact" type="text" placeholder="Contact number"></div>
+      <div class="field"><textarea id="desc" placeholder="Short description"></textarea></div>
+      <div class="field"><button class="btn-primary" onclick="addOrUpdateListing()">➕ Add to Plotify</button></div>
+      <div class="muted">Data stored in local storage only.</div>
+    </aside>
+  </main>
+
+  <script src="script.js"></script>
+</body>
+</html>

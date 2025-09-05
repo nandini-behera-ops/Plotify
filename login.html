@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Login - Plotify</title>
+  <style>
+    * {margin: 0; padding: 0; box-sizing: border-box; font-family: Arial, sans-serif;}
+    body {background: linear-gradient(135deg, #1a1a1a, #000000); display: flex; align-items: center; justify-content: center; height: 100vh;}
+    .login-container {background: #111; padding: 40px; border-radius: 15px; box-shadow: 0 0 15px rgba(255, 215, 0, 0.3); text-align: center; width: 320px;}
+    .login-title {color: #FFD700; margin-bottom: 20px;}
+    .login-form input {width: 100%; padding: 12px; margin: 10px 0; border: none; border-radius: 8px; outline: none;}
+    .password-wrapper {position: relative;}
+    .password-wrapper input {padding-right: 40px;}
+    .toggle-password {position: absolute; right: 12px; top: 50%; transform: translateY(-50%); cursor: pointer; font-size: 16px; color: #888;}
+    .toggle-password:hover {color: #FFD700;}
+    .login-form button {width: 100%; padding: 12px; background: #FFD700; border: none; border-radius: 8px; font-weight: bold; cursor: pointer; transition: 0.3s;}
+    .login-form button:hover {background: #e6c200;}
+    .signup-text {margin-top: 15px; font-size: 14px; color: #fff;}
+    .signup-text a {color: #FFD700; text-decoration: none;}
+  </style>
+</head>
+<body>
+  <div class="login-container">
+    <h2 class="login-title">Welcome Back</h2>
+    <form class="login-form" onsubmit="return loginUser(event)">
+      <input type="text" id="fullname" placeholder="Full Name" required>
+      <div class="password-wrapper">
+        <input type="password" id="password" placeholder="Password" required>
+        <span class="toggle-password" onclick="togglePassword()">👁️</span>
+      </div>
+      <button type="submit">Login</button>
+      <p class="signup-text">Don’t have an account? <a href="signup.html">Sign Up</a></p>
+    </form>
+  </div>
+
+  <script>
+  function togglePassword() {
+    const passwordField = document.getElementById("password");
+    const toggleIcon = document.querySelector(".toggle-password");
+    if (passwordField.type === "password") {
+      passwordField.type = "text";
+      toggleIcon.textContent = "🙈";
+    } else {
+      passwordField.type = "password";
+      toggleIcon.textContent = "👁️";
+    }
+  }
+
+  function loginUser(event) {
+    event.preventDefault();
+
+    const fullname = document.getElementById("fullname").value.trim();
+    const password = document.getElementById("password").value;
+
+    const users = JSON.parse(localStorage.getItem("users")) || [];
+    const found = users.find(u => u.fullname === fullname && u.password === password);
+
+    if (found) {
+      alert("Login successful!");
+      localStorage.setItem("loggedInUser", JSON.stringify(found)); // save full user
+      window.location.href = "index.html"; 
+    } else {
+      alert("Invalid fullname or password!");
+    }
+  }
+</script>
+
+</body>
+</html>
