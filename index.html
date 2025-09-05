@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -7,6 +8,7 @@
   <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;500;700&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="style.css">
 </head>
+
 <body>
   <div class="topbar" role="banner">
     <div class="logo">P</div>
@@ -16,12 +18,17 @@
     </div>
     <div style="flex:1"></div>
     <div class="top-actions">
-  <button onclick="showFavorites()">Show Favorites</button>
-  <button onclick="clearAll()">Clear All</button>
-  <span id="welcomeUser" class="pill"></span>
-  <button id="logoutBtn" onclick="logout()" style="display:none;">Logout</button>
-  <a href="login.html" class="btn-login" id="loginBtn">Login</a>
-</div>
+      <div class="top-actions-row1">
+        <button onclick="showFavorites()" class="pill">Show Favorites</button>
+        <button onclick="clearAll()" class="pill">Clear All</button>
+      </div>
+      <div class="top-actions-row2">
+        <span id="welcomeUser" class="pill"></span>
+        <button id="logoutBtn" onclick="logout()" style="display:none;" class="pill">Logout</button>
+      </div>
+      <a href="login.html" class="btn-login" id="loginBtn">Login</a>
+    </div>
+
 
   </div>
 
@@ -72,4 +79,5 @@
 
   <script src="script.js"></script>
 </body>
+
 </html>

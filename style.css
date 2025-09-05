@@ -195,3 +195,104 @@ textarea{ min-height:82px;resize:vertical }
   input[type="text"],input[type="number"],textarea,input[list]{ font-size:13px;padding:10px }
   .btn-primary{ font-size:13px;padding:10px }
 }
+/* ========================
+   Extra mobile adjustments
+   ======================== */
+@media (max-width: 768px) {
+  /* Logo center me le aao */
+  .topbar {
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+  }
+
+  .logo {
+    margin: 0 auto;
+  }
+
+  /* Buttons row-wise arrange */
+  .top-actions {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 8px;
+    margin-top: 10px;
+  }
+
+  /* Show Favorites aur Clear All ek row me */
+  .top-actions button:nth-child(1),
+  .top-actions button:nth-child(2) {
+    flex: 1;
+    max-width: 150px;
+  }
+
+  /* Hello user aur Logout ek row me */
+  #welcomeUser, 
+  #logoutBtn {
+    flex: 1;
+    max-width: 150px;
+    text-align: center;
+  }
+}
+
+/* Available Plots border */
+#available {
+  border: 2px solid #facc15;
+  padding: 6px;
+  border-radius: 8px;
+  display: inline-block;
+}
+
+/* Har listing card pe border */
+.listing {
+  border: 2px solid rgba(250, 204, 21, 0.3);
+  border-radius: 12px;
+  padding: 12px;
+  margin-bottom: 12px;
+  background: rgba(255,255,255,0.03);
+}
+
+/* Listing ke photo pe border */
+.thumb {
+  border: 2px solid #facc15;
+  border-radius: 12px;
+}
+@media (max-width: 768px) {
+  /* Topbar column wise */
+  .topbar {
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+  }
+
+  .logo {
+    margin: 0 auto;
+  }
+
+  /* Top actions ko 2 row me tod do */
+  .top-actions {
+    width: 100%;
+    display: flex;
+    flex-direction: column; /* rows banenge */
+    align-items: center;
+    gap: 10px;
+    margin-top: 12px;
+  }
+
+  /* First row → Show Favorites + Clear All */
+  .top-actions-row1 {
+    display: flex;
+    gap: 8px;
+    justify-content: center;
+    width: 100%;
+  }
+
+  /* Second row → Hello user + Logout */
+  .top-actions-row2 {
+    display: flex;
+    gap: 8px;
+    justify-content: center;
+    width: 100%;
+  }
+}
