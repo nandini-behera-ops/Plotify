@@ -144,6 +144,124 @@ textarea{ min-height:82px; resize:vertical; }
   transform: translateY(-2px);
   box-shadow: 0 4px 10px rgba(0,0,0,0.15);
 }
+/* Extra responsiveness */
+@media (max-width: 768px) {
+  h1 {
+    font-size: 26px;
+    margin: 10px;
+  }
+
+  .topbar {
+    flex-wrap: wrap;
+    padding: 10px 14px;
+    gap: 8px;
+  }
+
+  .logo {
+    width: 45px;
+    height: 45px;
+    font-size: 18px;
+  }
+
+  .brand .title {
+    font-size: 16px;
+  }
+
+  .brand .tag {
+    font-size: 11px;
+  }
+
+  .top-actions {
+    flex-wrap: wrap;
+    justify-content: center;
+    width: 100%;
+  }
+
+  .top-actions button,
+  .top-actions .btn-login {
+    flex: 1 1 45%;
+    text-align: center;
+    font-size: 14px;
+    padding: 8px;
+  }
+
+  .filters {
+    flex-direction: column;
+  }
+
+  .filters input,
+  .filters button {
+    width: 100%;
+  }
+
+  .listing {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
+  .thumb {
+    width: 100%;
+    height: 180px;
+  }
+
+  .land-actions {
+    margin-top: 10px;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px;
+  }
+
+  .land-actions button {
+    flex: 1 1 30%;
+  }
+}
+
+@media (max-width: 480px) {
+  h1 {
+    font-size: 22px;
+  }
+
+  .topbar {
+    margin: 8px;
+    padding: 8px;
+  }
+
+  .logo {
+    width: 38px;
+    height: 38px;
+    font-size: 16px;
+  }
+
+  .brand .title {
+    font-size: 14px;
+  }
+
+  .brand .tag {
+    font-size: 10px;
+  }
+
+  .card {
+    padding: 14px;
+  }
+
+  input[type="text"], 
+  input[type="number"], 
+  textarea, 
+  input[list] {
+    font-size: 13px;
+    padding: 10px;
+  }
+
+  .btn-primary {
+    font-size: 14px;
+    padding: 10px;
+  }
+
+  .price {
+    font-size: 14px;
+    padding: 5px 10px;
+  }
+}
 
 
 
